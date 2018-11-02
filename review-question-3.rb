@@ -22,6 +22,13 @@ class Photo
     Comment.new(comment,self)
 
   end
+
+  def comments
+    Comment.all.select{|comment|comment.photo==self}
+  end
+
+
+
 end #end photo class
 
 
