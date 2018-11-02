@@ -1,5 +1,4 @@
 ## QUESTION 1
-
 pokemon = [
   {
     "id": 1,
@@ -17,8 +16,11 @@ pokemon = [
                 "name": "chlorophyll",
                 "url": "http://pokeapi.co/api/v2/ability/34/"
             }
+
+
         }
     ]
+
 },
 {
   "id": 3,
@@ -62,8 +64,26 @@ pokemon = [
 
 
 # How would you get the url for Bulbasaur's ability?
+puts pokemon[0][:abilities][0][:ability][:url]
 # How would you return the first pokemon with base experience over 40?
+#puts pokemon.find{|pokemon|pokemon[:base_experience]>40}
 # How would you return ALL OF THE pokemon with base experience over 40? (Gotta catch em all)
+#puts pokemon.select{|pokemon|pokemon[:base_experience]>40}
 # How would you return an array of all of the pokemon's names?
+pokemon_names=[]
+pokemon.each{ |pokemon|pokemon_names << pokemon[:name]}
+pokemon_names
+ #OR
+ #pokemon.map{ |pokemon|pokemon[:name]}
+
+
 # How would you determine whether or not the pokemon array contained any pokemon with a weight greater than 60?
+ fat_pokemon=pokemon.find{|pokemon|pokemon[:weight]>60}
+ if fat_pokemon
+puts true
+else puts false
+end
+pokemon.any?{|pokemon|pokemon[:weight]>60}
+
+
 #  whatever method you use should return true if there are any such pokemon, false if not.
